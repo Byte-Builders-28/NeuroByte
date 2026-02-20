@@ -6,6 +6,7 @@ import Game from "./pages/Game";
 import Transition from "./pages/Transition";
 import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
+import "tailwindcss";
 
 function App() {
   return (
