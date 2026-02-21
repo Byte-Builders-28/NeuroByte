@@ -103,34 +103,6 @@ export default function Onboarding() {
 
   return (
     <div className="glass">
-    
-<div style={{position: 'relative', overflow: 'hidden', minHeight: '500px', maxHeight: '500px', width: '100%'}}>
-  <Ballpit
-    count={500}
-    gravity={0.01}
-    friction={0.9975}
-    wallBounce={0.95}
-    followCursor={false}
-    colors={[
-  0xFF0000, // red
-  0xFF7F00, // orange
-  0xFFFF00, // yellow
-  0x00FF00, // green
-  0x0000FF, // blue
-  0x4B0082, // indigo
-  0x9400D3  // violet
-]}
-  />
-</div>
-
-      <h1>Welcome to NeuroByte</h1>
-      <h3>Select Learning Profile</h3>
-
-      <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
-        {["ADHD", "PTSD", "Autism", "Dyscalculia"].map((item) => (
-          <button key={item}>{item}</button>
-        ))}
-      </div>
 
       {/* Main Content Container */}
       <div className={`relative z-10 flex flex-col items-center justify-center flex-1 w-full max-w-7xl mx-auto py-20 pb-32 transition-all duration-700 ${isModalOpen ? 'blur-md opacity-40 scale-95 pointer-events-none' : 'blur-0 opacity-100 scale-100'}`}>
