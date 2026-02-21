@@ -21,6 +21,7 @@ export default function Onboarding() {
 
   useEffect(() => {
     if (isModalOpen) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -119,6 +120,7 @@ export default function Onboarding() {
   };
 
   return (
+    <>
     <div className="glass">
 
       {/* Main Content Container */}
@@ -179,20 +181,25 @@ export default function Onboarding() {
           ))}
         </div>
       </div>
+    </div>
 
-      {/* Full Screen Modal Overlay */}
+      {/* Full Screen Modal Overlay — rendered outside .glass to avoid backdrop-filter containing block */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-8 animate-in fade-in duration-500">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+          {/* Backdrop */}
           <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-md" onClick={() => setIsModalOpen(false)} />
-          
-          {/* Modal Card — full rounded shape visible top & bottom */}
-          <div className="relative w-full max-w-2xl flex flex-col bg-white border border-slate-200 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.1)] animate-slide-up" style={{maxHeight: 'calc(100vh - 4rem)'}}>
-            {/* Modal Ambient Glow */}
+
+          {/* Modal Card — fixed height, inner area scrolls */}
+          <div
+            className="relative w-full max-w-2xl flex flex-col bg-white border border-slate-200 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.1)] animate-slide-up overflow-hidden"
+            style={{ height: 'calc(100vh - 3rem)' }}
+          >
+            {/* Ambient Glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-teal-100/50 blur-[80px] rounded-full pointer-events-none z-0" />
-            
-            {/* Fixed close button at top */}
+
+            {/* Close button — always visible at top */}
             <div className="relative z-20 flex justify-end px-8 pt-8 pb-2 shrink-0">
-              <button 
+              <button
                 onClick={() => setIsModalOpen(false)}
                 className="p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-700 transition-colors"
               >
@@ -200,8 +207,8 @@ export default function Onboarding() {
               </button>
             </div>
 
-            {/* Scrollable content area */}
-            <div className="overflow-y-auto px-8 pb-8 md:px-12 md:pb-12 relative z-10">
+            {/* SCROLLABLE content area */}
+            <div className="flex-1 overflow-y-scroll min-h-0 px-8 pb-10 md:px-12 md:pb-12 relative z-10">
               {/* STEP 1: Condition */}
               {step === 1 && (
               <div className="animate-in fade-in slide-in-from-left-4 duration-500">
@@ -353,6 +360,6 @@ export default function Onboarding() {
         </div>
       )}
 
-    </div>
+    </>
   );
 }
