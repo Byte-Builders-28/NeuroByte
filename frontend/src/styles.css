@@ -75,11 +75,11 @@ body {
 
 /* Hide scrollbar utility */
 .hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+.hide-scrollbar::-webkit-scrollbar,
+.hide-scrollbar *::-webkit-scrollbar {
+  display: none !important; /* Safari and Chrome */
 }
-
