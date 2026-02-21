@@ -119,13 +119,14 @@ export default function Onboarding() {
               wallBounce={0.95}
               followCursor={false}
               colors={[
-                0xFF0000, // red
-                0xFF7F00, // orange
-                0xFFFF00, // yellow
-                0x00FF00, // green
-                0x0000FF, // blue
-                0x4B0082, // indigo
-                0x9400D3  // violet
+                0x00FF00, // bright green
+                0xFFFFFF, // white
+                0x32CD32, // lime green
+                
+                0x228B22, // forest green
+                
+                0x90EE90, // light green
+                
               ]}
             />
           </div>
