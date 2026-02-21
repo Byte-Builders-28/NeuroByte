@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Brain, Sparkles, Gamepad2, BarChart3, ChevronRight, ChevronLeft, X, Check, Globe, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +9,13 @@ export default function Onboarding() {
   const [selectedAge, setSelectedAge] = useState("");
   const [selectedLang, setSelectedLang] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.body.classList.add('hide-scrollbar');
+    return () => {
+      document.body.classList.remove('hide-scrollbar');
+    };
+  }, []);
 
   const conditions = [
     { id: "adhd", label: "ADHD", desc: "Attention Deficit Hyperactivity Disorder" },
