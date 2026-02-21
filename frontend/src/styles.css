@@ -7,7 +7,7 @@
 body {
   margin: 0;
   font-family: var(--font-outfit);
-  background: #030014;
+  background: #0f172a; /* Calming deep slate-blue */
   color: white;
   -webkit-font-smoothing: antialiased;
 }

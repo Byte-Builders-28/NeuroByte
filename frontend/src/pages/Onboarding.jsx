@@ -1,87 +1,150 @@
-import { Brain, Sparkles, Gamepad2, BarChart3, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { Brain, Sparkles, Gamepad2, BarChart3, ChevronRight, ChevronLeft, X, Check, Globe, Calendar } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Onboarding() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [step, setStep] = useState(1);
+  const [selectedCondition, setSelectedCondition] = useState("");
+  const [selectedAge, setSelectedAge] = useState("");
+  const [selectedLang, setSelectedLang] = useState("");
+  const navigate = useNavigate();
+
+  const conditions = [
+    { id: "adhd", label: "ADHD", desc: "Attention Deficit Hyperactivity Disorder" },
+    { id: "asd", label: "ASD", desc: "Autism Spectrum Disorder" },
+    { id: "ptsd", label: "PTSD", desc: "Post-Traumatic Stress Disorder" },
+    { id: "dyslexia", label: "Dyslexia", desc: "Difficulty reading or decoding" },
+    { id: "other", label: "Other / Prefer not to say", desc: "General focus enhancement" },
+  ];
+
+  const ages = [
+    { id: "under-7", label: "Under 7", desc: "Early learners" },
+    { id: "7-12", label: "7-12 years", desc: "Primary students" },
+    { id: "13-17", label: "13-17 years", desc: "Teens" },
+    { id: "18-plus", label: "18+ years", desc: "Adults" },
+  ];
+
+  const languages = [
+    { id: "en", label: "English" },
+    { id: "hi", label: "Hindi" },
+    { id: "bn", label: "Bengali" },
+    { id: "mr", label: "Marathi" },
+    { id: "ta", label: "Tamil" },
+    { id: "te", label: "Telugu" },
+    { id: "gu", label: "Gujarati" },
+    { id: "ml", label: "Malayalam" },
+    { id: "ur", label: "Urdu" },
+    { id: "es", label: "Spanish" },
+    { id: "fr", label: "French" },
+  ];
+
   const features = [
     {
       icon: Brain,
       title: "Adaptive AI",
       desc: "The system adapts difficulty based on user focus and learning speed.",
-      color: "text-indigo-400",
-      bg: "bg-indigo-500/10",
-      border: "border-indigo-500/20",
-      glow: "bg-indigo-500/30"
+      color: "text-sky-400",
+      bg: "bg-sky-500/10",
+      border: "border-sky-500/20",
+      glow: "bg-sky-500/30"
     },
     {
       icon: Sparkles,
       title: "Emotion Detection",
       desc: "AI analyzes facial expressions to understand frustration or focus.",
-      color: "text-fuchsia-400",
-      bg: "bg-fuchsia-500/10",
-      border: "border-fuchsia-500/20",
-      glow: "bg-fuchsia-500/30"
+      color: "text-emerald-400",
+      bg: "bg-emerald-500/10",
+      border: "border-emerald-500/20",
+      glow: "bg-emerald-500/30"
     },
     {
       icon: Gamepad2,
       title: "Gamified Learning",
       desc: "Interactive games make learning engaging and rewarding.",
-      color: "text-cyan-400",
-      bg: "bg-cyan-500/10",
-      border: "border-cyan-500/20",
-      glow: "bg-cyan-500/30"
+      color: "text-amber-400",
+      bg: "bg-amber-500/10",
+      border: "border-amber-500/20",
+      glow: "bg-amber-500/30"
     },
     {
       icon: BarChart3,
       title: "Progress Tracking",
       desc: "Parents and teachers get clear insights into improvements.",
-      color: "text-amber-400",
-      bg: "bg-amber-500/10",
-      border: "border-amber-500/20",
-      glow: "bg-amber-500/30"
+      color: "text-indigo-400",
+      bg: "bg-indigo-500/10",
+      border: "border-indigo-500/20",
+      glow: "bg-indigo-500/30"
     }
   ];
 
+  const handleNextStep = () => {
+    if (step === 1 && selectedCondition) {
+      setStep(2);
+    }
+  };
+
+  const handleFinish = () => {
+    if (selectedCondition && selectedAge && selectedLang) {
+      navigate("/assessment", { 
+        state: { 
+          condition: selectedCondition,
+          age: selectedAge,
+          language: selectedLang
+        } 
+      });
+    }
+  };
+
+  const openModal = () => {
+    setStep(1);
+    setIsModalOpen(true);
+  };
+
   return (
-    <div className="relative min-h-screen bg-[#02000a] text-slate-50 flex flex-col items-center px-6 overflow-hidden selection:bg-indigo-500/40">
+    <div className="relative min-h-screen bg-slate-900 text-slate-50 flex flex-col items-center px-6 overflow-hidden selection:bg-sky-500/40">
       
-      {/* Dynamic Animated Background */}
+      {/* Therapeutic, Slow-Animated Calming Background Orbs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-indigo-600/20 blur-[150px] rounded-full mix-blend-screen animate-pulse-slow" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-fuchsia-600/15 blur-[150px] rounded-full mix-blend-screen animate-pulse-slow delay-500" />
-        <div className="absolute top-[20%] right-[10%] w-[30vw] h-[30vw] bg-cyan-600/10 blur-[120px] rounded-full mix-blend-screen animate-pulse-slow delay-300" />
+        <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-teal-600/15 blur-[150px] rounded-full mix-blend-screen animate-pulse-slow" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-sky-600/15 blur-[150px] rounded-full mix-blend-screen animate-pulse-slow delay-500" />
+        <div className="absolute top-[20%] right-[10%] w-[30vw] h-[30vw] bg-emerald-600/10 blur-[120px] rounded-full mix-blend-screen animate-pulse-slow delay-300" />
         
-        {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDMpIiBzdHJva2Utd2lkdGg9IjEiLz4KPC9zdmc+')] opacity-20" />
+        {/* Soft dot pattern overlay for a playful, gamified texture */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CiAgPGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiLz4KPC9zdmc+')] opacity-60" />
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 flex flex-col items-center justify-center flex-1 w-full max-w-7xl mx-auto py-24 pb-32">
+      <div className={`relative z-10 flex flex-col items-center justify-center flex-1 w-full max-w-7xl mx-auto py-24 pb-32 transition-all duration-700 ${isModalOpen ? 'blur-md opacity-40 scale-95 pointer-events-none' : 'blur-0 opacity-100 scale-100'}`}>
         
         {/* Hero Section */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-24 mt-10">
           
-          <div className="animate-slide-up inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-indigo-300 font-medium mb-10 backdrop-blur-md shadow-2xl">
+          <div className="animate-slide-up inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] border border-white/[0.1] text-teal-300 font-medium mb-10 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.2)]">
             <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-teal-500"></span>
             </span>
-            <span className="text-sm tracking-wide">Welcome to the future of learning</span>
+            <span className="text-sm tracking-wide">A safe space to learn & play</span>
           </div>
           
-          <h1 className="animate-slide-up delay-100 text-7xl md:text-9xl font-black mb-8 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-100 to-slate-400 drop-shadow-2xl pb-2">
+          <h1 className="animate-slide-up delay-100 text-7xl md:text-9xl font-black mb-8 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-100 to-teal-200 drop-shadow-2xl pb-2">
             NeuroByte
           </h1>
 
-          <p className="animate-slide-up delay-200 text-xl md:text-2xl text-slate-400 max-w-3xl mb-14 leading-relaxed font-light">
-            AI-powered personalized learning platform helping neurodivergent
-            learners stay focused, motivated, and confident.
+          <p className="animate-slide-up delay-200 text-xl md:text-2xl text-slate-300 max-w-3xl mb-14 leading-relaxed font-light">
+            A playful, therapeutic learning platform designed to help neurodivergent
+            minds stay grounded, focused, and confident through interactive games.
           </p>
 
-          <button className="animate-slide-up delay-300 group relative inline-flex items-center justify-center gap-3 bg-white text-black px-10 py-5 rounded-full font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-[0_0_50px_-10px_rgba(255,255,255,0.4)] overflow-hidden">
-            <span className="relative z-10">Get Started Now</span>
+          <button 
+            onClick={openModal}
+            className="animate-slide-up delay-300 group relative inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-10 py-5 rounded-full font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(56,189,248,0.5)] overflow-hidden"
+          >
+            <span className="relative z-10">Start the Journey</span>
             <ChevronRight className="w-5 h-5 relative z-10 group-hover:translate-x-1.5 transition-transform duration-300" />
             
-            {/* Button Hover effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-200 via-white to-fuchsia-200 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-x" />
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-100 via-white to-teal-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-x" />
           </button>
         </div>
 
@@ -90,28 +153,184 @@ export default function Onboarding() {
           {features.map((feature, idx) => (
             <div 
               key={idx} 
-              className={`animate-slide-up delay-400 group relative bg-white/[0.02] border border-white/[0.05] backdrop-blur-2xl p-8 rounded-[2rem] hover:bg-white/[0.05] hover:border-white/[0.15] transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl overflow-hidden`}
+              className={`animate-slide-up delay-400 group relative bg-white/[0.03] border border-white/[0.08] backdrop-blur-2xl p-8 rounded-[2.5rem] hover:bg-white/[0.06] hover:border-white/[0.2] transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl overflow-hidden`}
               style={{ animationDelay: `${400 + (idx * 100)}ms` }}
             >
-              {/* Card Hover Ambient Glow */}
               <div className={`absolute -top-20 -right-20 w-48 h-48 blur-[60px] rounded-full transition-opacity opacity-0 group-hover:opacity-100 duration-700 ${feature.glow}`} />
               
-              {/* Icon Container */}
-              <div className={`relative z-10 inline-flex p-4 rounded-2xl mb-8 border ${feature.bg} ${feature.border} shadow-inner group-hover:scale-110 transition-transform duration-500`}>
-                <feature.icon className={`w-8 h-8 ${feature.color}`} strokeWidth={1.5} />
+              <div className={`relative z-10 inline-flex p-4 rounded-full mb-8 border ${feature.bg} ${feature.border} shadow-inner group-hover:scale-110 transition-transform duration-500`}>
+                <feature.icon className={`w-8 h-8 ${feature.color}`} strokeWidth={2} />
               </div>
               
-              <h3 className="relative z-10 text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-400 transition-all duration-300">
+              <h3 className="relative z-10 text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-300 transition-all duration-300">
                 {feature.title}
               </h3>
-              <p className="relative z-10 text-slate-400 leading-relaxed text-base font-light">
+              <p className="relative z-10 text-slate-300 leading-relaxed text-base font-light">
                 {feature.desc}
               </p>
             </div>
           ))}
         </div>
-        
       </div>
+
+      {/* Full Screen Modal Overlay */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8 animate-in fade-in duration-500 overflow-hidden">
+          <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-sm" onClick={() => setIsModalOpen(false)} />
+          
+          <div className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-slate-900 border border-slate-700/50 rounded-[2.5rem] p-8 md:p-12 shadow-[0_0_80px_rgba(0,0,0,0.5)] animate-slide-up scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
+            {/* Modal Inner Glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-[80px] rounded-full pointer-events-none" />
+            
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-6 right-6 p-2 rounded-full hover:bg-white/10 text-slate-400 hover:text-white transition-colors z-20"
+            >
+              <X size={24} />
+            </button>
+
+            {/* STEP 1: Condition */}
+            {step === 1 && (
+            <div className="relative z-10 animate-in fade-in slide-in-from-left-4 duration-500">
+              <div className="mb-2 text-sm font-bold tracking-widest text-teal-400 uppercase">Step 1 of 2</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 pr-8">
+                How can we help?
+              </h2>
+              <p className="text-slate-400 text-lg mb-8">
+                To personalize your learning games, please select the primary condition or focus area.
+              </p>
+
+              <div className="grid gap-3 mb-10">
+                {conditions.map((cond) => (
+                  <button
+                    key={cond.id}
+                    onClick={() => setSelectedCondition(cond.id)}
+                    className={`relative flex items-center p-5 rounded-2xl border text-left transition-all duration-300 ${
+                      selectedCondition === cond.id
+                        ? "bg-teal-500/10 border-teal-500/50 shadow-[0_0_20px_rgba(20,184,166,0.15)]"
+                        : "bg-white/[0.02] border-white/5 hover:bg-white/[0.06] hover:border-white/20"
+                    }`}
+                  >
+                    <div className="flex-1">
+                      <div className="font-semibold text-lg text-white mb-1">{cond.label}</div>
+                      <div className="text-slate-400 text-sm font-light">{cond.desc}</div>
+                    </div>
+                    
+                    <div className={`w-6 h-6 rounded-full border flex items-center justify-center transition-colors ${
+                      selectedCondition === cond.id 
+                        ? "bg-teal-500 border-teal-500 text-white" 
+                        : "border-slate-600 border-dashed"
+                    }`}>
+                      {selectedCondition === cond.id && <Check size={14} strokeWidth={3} />}
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex justify-end sticky bottom-0 pt-4 bg-slate-900/90 backdrop-blur-xl border-t border-slate-700/50 -mx-4 px-4 sm:-mx-8 sm:px-8">
+                <button
+                  onClick={handleNextStep}
+                  disabled={!selectedCondition}
+                  className={`flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 ${
+                    selectedCondition
+                      ? "bg-teal-500 text-white hover:bg-teal-400 hover:shadow-[0_0_30px_rgba(45,212,191,0.4)]"
+                      : "bg-slate-800 text-slate-500 cursor-not-allowed"
+                  }`}
+                >
+                  Continue
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+            )}
+
+            {/* STEP 2: Age & Language */}
+            {step === 2 && (
+            <div className="relative z-10 animate-in fade-in slide-in-from-right-4 duration-500">
+              <div className="mb-2 text-sm font-bold tracking-widest text-sky-400 uppercase">Step 2 of 2</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 pr-8">
+                About the Learner
+              </h2>
+              <p className="text-slate-400 text-lg mb-8">
+                Help us tailor the experience by providing the age group and preferred language.
+              </p>
+
+              {/* Age Grid */}
+              <div className="mb-8">
+                <div className="flex items-center gap-2 mb-4 text-slate-300">
+                  <Calendar size={20} className="text-sky-400" />
+                  <span className="font-semibold text-lg">Age Group</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {ages.map((a) => (
+                    <button
+                      key={a.id}
+                      onClick={() => setSelectedAge(a.id)}
+                      className={`p-4 rounded-2xl border text-center transition-all duration-300 ${
+                        selectedAge === a.id
+                          ? "bg-sky-500/10 border-sky-500/50 shadow-[0_0_20px_rgba(14,165,233,0.15)]"
+                          : "bg-white/[0.02] border-white/5 hover:bg-white/[0.06] hover:border-white/20"
+                      }`}
+                    >
+                      <div className={`font-bold mb-1 ${selectedAge === a.id ? "text-sky-300" : "text-white"}`}>{a.label}</div>
+                      <div className="text-slate-400 text-xs">{a.desc}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Language Grid */}
+              <div className="mb-10">
+                <div className="flex items-center gap-2 mb-4 text-slate-300">
+                  <Globe size={20} className="text-emerald-400" />
+                  <span className="font-semibold text-lg">Primary Language</span>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {languages.map((l) => (
+                    <button
+                      key={l.id}
+                      onClick={() => setSelectedLang(l.id)}
+                      className={`flex-1 min-w-[120px] p-3 rounded-2xl border text-center transition-all duration-300 font-semibold ${
+                        selectedLang === l.id
+                          ? "bg-emerald-500/10 border-emerald-500/50 text-emerald-300 shadow-[0_0_20px_rgba(16,185,129,0.15)]"
+                          : "bg-white/[0.02] border-white/5 text-slate-300 hover:bg-white/[0.06] hover:border-white/20 hover:text-white"
+                      }`}
+                    >
+                      {l.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex justify-between items-center sticky bottom-0 pt-4 bg-slate-900/90 backdrop-blur-xl border-t border-slate-700/50 -mx-4 px-4 sm:-mx-8 sm:px-8">
+                <button
+                  onClick={() => setStep(1)}
+                  className="flex items-center gap-2 px-6 py-4 rounded-full font-bold text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300"
+                >
+                  <ChevronLeft size={20} />
+                  Back
+                </button>
+                
+                <button
+                  onClick={handleFinish}
+                  disabled={!selectedAge || !selectedLang}
+                  className={`flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 ${
+                    selectedAge && selectedLang
+                      ? "bg-sky-500 text-white hover:bg-sky-400 hover:shadow-[0_0_30px_rgba(14,165,233,0.4)]"
+                      : "bg-slate-800 text-slate-500 cursor-not-allowed"
+                  }`}
+                >
+                  Finish
+                  <Check size={20} className={selectedAge && selectedLang ? "opacity-100" : "opacity-0"} />
+                </button>
+              </div>
+            </div>
+            )}
+
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
