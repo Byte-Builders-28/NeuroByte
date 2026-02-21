@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Brain, Sparkles, Gamepad2, BarChart3, ChevronRight, ChevronLeft, X, Check, Globe, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -181,6 +182,173 @@ export default function Onboarding() {
           ))}
         </div>
       </div>
+
+      {/* Full Screen Modal Overlay */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-8 animate-in fade-in duration-500 overflow-hidden">
+          <div className="absolute inset-0 bg-slate-900/20 backdrop-blur-md" onClick={() => setIsModalOpen(false)} />
+          
+          <div className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-white border border-slate-200 rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.1)] animate-slide-up scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent">
+            {/* Modal Ambient Glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-teal-100/50 blur-[80px] rounded-full pointer-events-none" />
+            
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-6 right-6 p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-700 transition-colors z-20"
+            >
+              <X size={24} />
+            </button>
+
+            {/* STEP 1: Condition */}
+            {step === 1 && (
+            <div className="relative z-10 animate-in fade-in slide-in-from-left-4 duration-500">
+              <div className="mb-2 text-sm font-bold tracking-widest text-teal-600 uppercase">Step 1 of 2</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3 pr-8">
+                How can we help?
+              </h2>
+              <p className="text-slate-500 text-lg mb-8 font-medium">
+                To personalize your learning games, please select the primary condition or focus area.
+              </p>
+
+              <div className="grid gap-3 mb-10">
+                {conditions.map((cond) => (
+                  <button
+                    key={cond.id}
+                    onClick={() => setSelectedCondition(cond.id)}
+                    className={`relative flex items-center p-5 rounded-2xl border-2 text-left transition-all duration-300 ${
+                      selectedCondition === cond.id
+                        ? "bg-teal-50 border-teal-500 shadow-[0_4px_16px_rgba(20,184,166,0.15)]"
+                        : "bg-white border-slate-100 shadow-sm hover:bg-slate-50 hover:border-slate-200 hover:shadow-md"
+                    }`}
+                  >
+                    <div className="flex-1">
+                      <div className={`font-bold text-lg mb-1 ${selectedCondition === cond.id ? "text-teal-800" : "text-slate-700"}`}>
+                        {cond.label}
+                      </div>
+                      <div className={`text-sm font-medium ${selectedCondition === cond.id ? "text-teal-600/80" : "text-slate-500"}`}>
+                        {cond.desc}
+                      </div>
+                    </div>
+                    
+                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
+                      selectedCondition === cond.id 
+                        ? "bg-teal-500 border-teal-500 text-white" 
+                        : "border-slate-300 bg-white"
+                    }`}>
+                      {selectedCondition === cond.id && <Check size={14} strokeWidth={3} />}
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex justify-end mt-4 pt-6 border-t border-slate-100">
+                <button
+                  onClick={handleNextStep}
+                  disabled={!selectedCondition}
+                  className={`flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 ${
+                    selectedCondition
+                      ? "bg-teal-600 text-white hover:bg-teal-500 hover:shadow-[0_8px_24px_rgba(13,148,136,0.3)] shadow-md"
+                      : "bg-slate-100 text-slate-400 cursor-not-allowed"
+                  }`}
+                >
+                  Continue
+                  <ChevronRight size={20} strokeWidth={2.5} />
+                </button>
+              </div>
+            </div>
+            )}
+
+            {/* STEP 2: Age & Language */}
+            {step === 2 && (
+            <div className="relative z-10 animate-in fade-in slide-in-from-right-4 duration-500">
+              <div className="mb-2 text-sm font-bold tracking-widest text-sky-600 uppercase">Step 2 of 2</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3 pr-8">
+                About the Learner
+              </h2>
+              <p className="text-slate-500 text-lg mb-8 font-medium">
+                Help us tailor the experience by providing the age group and preferred language.
+              </p>
+
+              {/* Age Grid */}
+              <div className="mb-8">
+                <div className="flex items-center gap-2 mb-4 text-slate-700">
+                  <Calendar size={20} className="text-sky-500" strokeWidth={2.5} />
+                  <span className="font-bold text-lg">Age Group</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {ages.map((a) => (
+                    <button
+                      key={a.id}
+                      onClick={() => setSelectedAge(a.id)}
+                      className={`p-4 rounded-2xl border-2 text-center transition-all duration-300 ${
+                        selectedAge === a.id
+                          ? "bg-sky-50 border-sky-500 shadow-[0_4px_16px_rgba(14,165,233,0.15)]"
+                          : "bg-white border-slate-100 shadow-sm hover:bg-slate-50 hover:border-slate-200 hover:shadow-md"
+                      }`}
+                    >
+                      <div className={`font-extrabold mb-1 text-lg ${selectedAge === a.id ? "text-sky-700" : "text-slate-700"}`}>
+                        {a.label}
+                      </div>
+                      <div className={`text-xs font-medium ${selectedAge === a.id ? "text-sky-600/80" : "text-slate-500"}`}>
+                        {a.desc}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Language Grid */}
+              <div className="mb-10">
+                <div className="flex items-center gap-2 mb-4 text-slate-700">
+                  <Globe size={20} className="text-emerald-500" strokeWidth={2.5} />
+                  <span className="font-bold text-lg">Primary Language</span>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {languages.map((l) => (
+                    <button
+                      key={l.id}
+                      onClick={() => setSelectedLang(l.id)}
+                      className={`flex-1 min-w-[110px] p-3 rounded-2xl border-2 text-center transition-all duration-300 font-bold ${
+                        selectedLang === l.id
+                          ? "bg-emerald-50 border-emerald-500 text-emerald-700 shadow-[0_4px_16px_rgba(16,185,129,0.15)]"
+                          : "bg-white border-slate-100 text-slate-600 shadow-sm hover:bg-slate-50 hover:border-slate-200 hover:text-slate-800 hover:shadow-md"
+                      }`}
+                    >
+                      {l.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex justify-between items-center mt-4 pt-6 border-t border-slate-100">
+                <button
+                  onClick={() => setStep(1)}
+                  className="flex items-center gap-2 px-6 py-4 rounded-full font-bold text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-all duration-300"
+                >
+                  <ChevronLeft size={20} strokeWidth={2.5} />
+                  Back
+                </button>
+                
+                <button
+                  onClick={handleFinish}
+                  disabled={!selectedAge || !selectedLang}
+                  className={`flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 ${
+                    selectedAge && selectedLang
+                      ? "bg-sky-600 text-white hover:bg-sky-500 hover:shadow-[0_8px_24px_rgba(14,165,233,0.3)] shadow-md"
+                      : "bg-slate-100 text-slate-400 cursor-not-allowed"
+                  }`}
+                >
+                  Finish
+                  <Check size={20} strokeWidth={3} className={selectedAge && selectedLang ? "opacity-100 w-5" : "opacity-0 w-0"} />
+                </button>
+              </div>
+            </div>
+            )}
+
+          </div>
+        </div>
+      )}
+
     </div>
 
       {/* Full Screen Modal Overlay — rendered outside .glass to avoid backdrop-filter containing block */}
