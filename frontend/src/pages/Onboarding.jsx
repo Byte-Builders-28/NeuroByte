@@ -102,7 +102,7 @@ export default function Onboarding() {
   };
 
   return (
-    <div className="relative min-h-screen pt-4 bg-[#F0F8FF] text-slate-800 flex flex-col items-center px-6 overflow-hidden selection:bg-teal-200/60">
+    <div className="relative min-h-screen pt-4 bg-[#E8F8F5] text-slate-800 flex flex-col items-center px-6 overflow-hidden selection:bg-teal-200/60">
       
       {/* Therapeutic, Soft Pastel Calming Background Orbs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -151,7 +151,7 @@ export default function Onboarding() {
           {features.map((feature, idx) => (
             <div 
               key={idx} 
-              className={`animate-slide-up delay-400 group relative bg-white/70 border border-slate-100 backdrop-blur-xl p-8 rounded-[2.5rem] hover:bg-white/90 hover:border-slate-200 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl overflow-hidden shadow-sm`}
+              className={`animate-slide-up delay-400 group relative bg-white border border-slate-100 p-8 rounded-[2.5rem] hover:bg-white hover:border-teal-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(13,148,136,0.15)] overflow-hidden shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)]`}
               style={{ animationDelay: `${400 + (idx * 100)}ms` }}
             >
               {/* Card Hover Ambient Glow */}
@@ -208,7 +208,7 @@ export default function Onboarding() {
                     className={`relative flex items-center p-5 rounded-2xl border-2 text-left transition-all duration-300 ${
                       selectedCondition === cond.id
                         ? "bg-teal-50 border-teal-500 shadow-[0_4px_16px_rgba(20,184,166,0.15)]"
-                        : "bg-white border-slate-100 hover:bg-slate-50 hover:border-slate-200"
+                        : "bg-white border-slate-100 shadow-sm hover:bg-slate-50 hover:border-slate-200 hover:shadow-md"
                     }`}
                   >
                     <div className="flex-1">
@@ -273,7 +273,7 @@ export default function Onboarding() {
                       className={`p-4 rounded-2xl border-2 text-center transition-all duration-300 ${
                         selectedAge === a.id
                           ? "bg-sky-50 border-sky-500 shadow-[0_4px_16px_rgba(14,165,233,0.15)]"
-                          : "bg-white border-slate-100 hover:bg-slate-50 hover:border-slate-200"
+                          : "bg-white border-slate-100 shadow-sm hover:bg-slate-50 hover:border-slate-200 hover:shadow-md"
                       }`}
                     >
                       <div className={`font-extrabold mb-1 text-lg ${selectedAge === a.id ? "text-sky-700" : "text-slate-700"}`}>
@@ -301,7 +301,7 @@ export default function Onboarding() {
                       className={`flex-1 min-w-[110px] p-3 rounded-2xl border-2 text-center transition-all duration-300 font-bold ${
                         selectedLang === l.id
                           ? "bg-emerald-50 border-emerald-500 text-emerald-700 shadow-[0_4px_16px_rgba(16,185,129,0.15)]"
-                          : "bg-white border-slate-100 text-slate-600 hover:bg-slate-50 hover:border-slate-200 hover:text-slate-800"
+                          : "bg-white border-slate-100 text-slate-600 shadow-sm hover:bg-slate-50 hover:border-slate-200 hover:text-slate-800 hover:shadow-md"
                       }`}
                     >
                       {l.label}

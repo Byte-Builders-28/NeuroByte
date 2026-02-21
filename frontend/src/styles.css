@@ -7,7 +7,7 @@
 body {
   margin: 0;
   font-family: var(--font-outfit);
-  background: #F0F8FF; /* Soothing AliceBlue for stress-free viewing */
+  background: #E8F8F5; /* Refreshing Mint Cream background */
   color: #0f172a; /* Deep slate for high legibility without harsh black */
   -webkit-font-smoothing: antialiased;
 }
