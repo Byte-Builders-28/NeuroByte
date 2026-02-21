@@ -102,18 +102,6 @@ export default function Onboarding() {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="relative min-h-screen pt-4 bg-[#E8F8F5] text-slate-800 flex flex-col items-center px-6 overflow-hidden selection:bg-teal-200/60">
-      
-      {/* Therapeutic, Soft Pastel Calming Background Orbs */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[-10%] left-[-5%] w-[50vw] h-[50vw] bg-teal-200/40 blur-[130px] rounded-full mix-blend-multiply animate-pulse-slow" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[60vw] h-[60vw] bg-sky-200/40 blur-[140px] rounded-full mix-blend-multiply animate-pulse-slow delay-500" />
-        <div className="absolute top-[20%] right-[10%] w-[35vw] h-[35vw] bg-emerald-200/30 blur-[100px] rounded-full mix-blend-multiply animate-pulse-slow delay-300" />
-        
-        {/* Soft dot pattern overlay for a playful, gamified texture */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CiAgPGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMCwgMCwgMCwgMC4wMikiLz4KPC9zdmc+')] opacity-100" />
-=======
     <div className="glass">
     
 <div style={{position: 'relative', overflow: 'hidden', minHeight: '500px', maxHeight: '500px', width: '100%'}}>
@@ -142,7 +130,6 @@ export default function Onboarding() {
         {["ADHD", "PTSD", "Autism", "Dyscalculia"].map((item) => (
           <button key={item}>{item}</button>
         ))}
->>>>>>> 43216b66c6a117dd866fc929bdf8a35f6b12dae7
       </div>
 
       {/* Main Content Container */}
