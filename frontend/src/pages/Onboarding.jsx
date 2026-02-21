@@ -102,6 +102,7 @@ export default function Onboarding() {
   };
 
   return (
+<<<<<<< HEAD
     <div className="relative min-h-screen pt-4 bg-[#E8F8F5] text-slate-800 flex flex-col items-center px-6 overflow-hidden selection:bg-teal-200/60">
       
       {/* Therapeutic, Soft Pastel Calming Background Orbs */}
@@ -112,6 +113,36 @@ export default function Onboarding() {
         
         {/* Soft dot pattern overlay for a playful, gamified texture */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CiAgPGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMCwgMCwgMCwgMC4wMikiLz4KPC9zdmc+')] opacity-100" />
+=======
+    <div className="glass">
+    
+<div style={{position: 'relative', overflow: 'hidden', minHeight: '500px', maxHeight: '500px', width: '100%'}}>
+  <Ballpit
+    count={500}
+    gravity={0.01}
+    friction={0.9975}
+    wallBounce={0.95}
+    followCursor={false}
+    colors={[
+  0xFF0000, // red
+  0xFF7F00, // orange
+  0xFFFF00, // yellow
+  0x00FF00, // green
+  0x0000FF, // blue
+  0x4B0082, // indigo
+  0x9400D3  // violet
+]}
+  />
+</div>
+
+      <h1>Welcome to NeuroByte</h1>
+      <h3>Select Learning Profile</h3>
+
+      <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
+        {["ADHD", "PTSD", "Autism", "Dyscalculia"].map((item) => (
+          <button key={item}>{item}</button>
+        ))}
+>>>>>>> 43216b66c6a117dd866fc929bdf8a35f6b12dae7
       </div>
 
       {/* Main Content Container */}
