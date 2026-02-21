@@ -19,6 +19,14 @@ export default function Onboarding() {
     };
   }, []);
 
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isModalOpen]);
+
   const conditions = [
     { id: "adhd", label: "ADHD", desc: "Attention Deficit Hyperactivity Disorder" },
     { id: "asd", label: "ASD", desc: "Autism Spectrum Disorder" },
