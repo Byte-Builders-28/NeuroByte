@@ -72,3 +72,15 @@ body {
   padding: 30px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
+
+/* Hide scrollbar utility for global page elements only */
+.hide-scrollbar {
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+}
+
+/* Specifically target body/html to avoid hiding all internal scrollbars */
+html.hide-scrollbar::-webkit-scrollbar,
+body.hide-scrollbar::-webkit-scrollbar {
+  display: none !important; /* Safari and Chrome */
+}
