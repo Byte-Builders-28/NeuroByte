@@ -44,37 +44,37 @@ export default function Onboarding() {
       icon: Brain,
       title: "Adaptive AI",
       desc: "The system adapts difficulty based on user focus and learning speed.",
-      color: "text-sky-400",
-      bg: "bg-sky-500/10",
-      border: "border-sky-500/20",
-      glow: "bg-sky-500/30"
+      color: "text-sky-600",
+      bg: "bg-sky-100",
+      border: "border-sky-200",
+      glow: "bg-sky-400/20"
     },
     {
       icon: Sparkles,
       title: "Emotion Detection",
       desc: "AI analyzes facial expressions to understand frustration or focus.",
-      color: "text-emerald-400",
-      bg: "bg-emerald-500/10",
-      border: "border-emerald-500/20",
-      glow: "bg-emerald-500/30"
+      color: "text-emerald-600",
+      bg: "bg-emerald-100",
+      border: "border-emerald-200",
+      glow: "bg-emerald-400/20"
     },
     {
       icon: Gamepad2,
       title: "Gamified Learning",
       desc: "Interactive games make learning engaging and rewarding.",
-      color: "text-amber-400",
-      bg: "bg-amber-500/10",
-      border: "border-amber-500/20",
-      glow: "bg-amber-500/30"
+      color: "text-amber-500",
+      bg: "bg-amber-100",
+      border: "border-amber-200",
+      glow: "bg-amber-400/20"
     },
     {
       icon: BarChart3,
       title: "Progress Tracking",
       desc: "Parents and teachers get clear insights into improvements.",
-      color: "text-indigo-400",
-      bg: "bg-indigo-500/10",
-      border: "border-indigo-500/20",
-      glow: "bg-indigo-500/30"
+      color: "text-indigo-500",
+      bg: "bg-indigo-100",
+      border: "border-indigo-200",
+      glow: "bg-indigo-400/20"
     }
   ];
 
@@ -102,25 +102,25 @@ export default function Onboarding() {
   };
 
   return (
-    <div className="relative min-h-screen bg-slate-900 text-slate-50 flex flex-col items-center px-6 overflow-hidden selection:bg-sky-500/40">
+    <div className="relative min-h-screen pt-4 bg-[#F0F8FF] text-slate-800 flex flex-col items-center px-6 overflow-hidden selection:bg-teal-200/60">
       
-      {/* Therapeutic, Slow-Animated Calming Background Orbs */}
+      {/* Therapeutic, Soft Pastel Calming Background Orbs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-teal-600/15 blur-[150px] rounded-full mix-blend-screen animate-pulse-slow" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-sky-600/15 blur-[150px] rounded-full mix-blend-screen animate-pulse-slow delay-500" />
-        <div className="absolute top-[20%] right-[10%] w-[30vw] h-[30vw] bg-emerald-600/10 blur-[120px] rounded-full mix-blend-screen animate-pulse-slow delay-300" />
+        <div className="absolute top-[-10%] left-[-5%] w-[50vw] h-[50vw] bg-teal-200/40 blur-[130px] rounded-full mix-blend-multiply animate-pulse-slow" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[60vw] h-[60vw] bg-sky-200/40 blur-[140px] rounded-full mix-blend-multiply animate-pulse-slow delay-500" />
+        <div className="absolute top-[20%] right-[10%] w-[35vw] h-[35vw] bg-emerald-200/30 blur-[100px] rounded-full mix-blend-multiply animate-pulse-slow delay-300" />
         
         {/* Soft dot pattern overlay for a playful, gamified texture */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CiAgPGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiLz4KPC9zdmc+')] opacity-60" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CiAgPGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMCwgMCwgMCwgMC4wMikiLz4KPC9zdmc+')] opacity-100" />
       </div>
 
       {/* Main Content Container */}
-      <div className={`relative z-10 flex flex-col items-center justify-center flex-1 w-full max-w-7xl mx-auto py-24 pb-32 transition-all duration-700 ${isModalOpen ? 'blur-md opacity-40 scale-95 pointer-events-none' : 'blur-0 opacity-100 scale-100'}`}>
+      <div className={`relative z-10 flex flex-col items-center justify-center flex-1 w-full max-w-7xl mx-auto py-20 pb-32 transition-all duration-700 ${isModalOpen ? 'blur-md opacity-40 scale-95 pointer-events-none' : 'blur-0 opacity-100 scale-100'}`}>
         
         {/* Hero Section */}
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-24 mt-10">
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-20 mt-6">
           
-          <div className="animate-slide-up inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] border border-white/[0.1] text-teal-300 font-medium mb-10 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.2)]">
+          <div className="animate-slide-up inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 border border-teal-100 text-teal-700 font-semibold mb-10 backdrop-blur-md shadow-sm">
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-teal-500"></span>
@@ -128,23 +128,21 @@ export default function Onboarding() {
             <span className="text-sm tracking-wide">A safe space to learn & play</span>
           </div>
           
-          <h1 className="animate-slide-up delay-100 text-7xl md:text-9xl font-black mb-8 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-100 to-teal-200 drop-shadow-2xl pb-2">
+          <h1 className="animate-slide-up delay-100 text-7xl md:text-9xl font-black mb-8 tracking-tighter text-slate-800 drop-shadow-sm pb-2">
             NeuroByte
           </h1>
 
-          <p className="animate-slide-up delay-200 text-xl md:text-2xl text-slate-300 max-w-3xl mb-14 leading-relaxed font-light">
+          <p className="animate-slide-up delay-200 text-xl md:text-2xl text-slate-600 max-w-3xl mb-14 leading-relaxed font-medium">
             A playful, therapeutic learning platform designed to help neurodivergent
             minds stay grounded, focused, and confident through interactive games.
           </p>
 
           <button 
             onClick={openModal}
-            className="animate-slide-up delay-300 group relative inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-10 py-5 rounded-full font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(56,189,248,0.5)] overflow-hidden"
+            className="animate-slide-up delay-300 group relative inline-flex items-center justify-center gap-3 bg-teal-600 text-white px-10 py-5 rounded-full font-bold text-lg transition-all duration-500 hover:scale-105 hover:bg-teal-500 hover:shadow-[0_10px_40px_-10px_rgba(13,148,136,0.6)] overflow-hidden shadow-md"
           >
             <span className="relative z-10">Start the Journey</span>
             <ChevronRight className="w-5 h-5 relative z-10 group-hover:translate-x-1.5 transition-transform duration-300" />
-            
-            <div className="absolute inset-0 bg-gradient-to-r from-sky-100 via-white to-teal-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-x" />
           </button>
         </div>
 
@@ -153,19 +151,21 @@ export default function Onboarding() {
           {features.map((feature, idx) => (
             <div 
               key={idx} 
-              className={`animate-slide-up delay-400 group relative bg-white/[0.03] border border-white/[0.08] backdrop-blur-2xl p-8 rounded-[2.5rem] hover:bg-white/[0.06] hover:border-white/[0.2] transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl overflow-hidden`}
+              className={`animate-slide-up delay-400 group relative bg-white/70 border border-slate-100 backdrop-blur-xl p-8 rounded-[2.5rem] hover:bg-white/90 hover:border-slate-200 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl overflow-hidden shadow-sm`}
               style={{ animationDelay: `${400 + (idx * 100)}ms` }}
             >
-              <div className={`absolute -top-20 -right-20 w-48 h-48 blur-[60px] rounded-full transition-opacity opacity-0 group-hover:opacity-100 duration-700 ${feature.glow}`} />
+              {/* Card Hover Ambient Glow */}
+              <div className={`absolute -top-20 -right-20 w-48 h-48 blur-[50px] rounded-full transition-opacity opacity-0 group-hover:opacity-100 duration-700 ${feature.glow}`} />
               
-              <div className={`relative z-10 inline-flex p-4 rounded-full mb-8 border ${feature.bg} ${feature.border} shadow-inner group-hover:scale-110 transition-transform duration-500`}>
-                <feature.icon className={`w-8 h-8 ${feature.color}`} strokeWidth={2} />
+              {/* Icon Container */}
+              <div className={`relative z-10 inline-flex p-4 rounded-full mb-8 border ${feature.bg} ${feature.border} shadow-sm group-hover:scale-110 transition-transform duration-500`}>
+                <feature.icon className={`w-8 h-8 ${feature.color}`} strokeWidth={2.5} />
               </div>
               
-              <h3 className="relative z-10 text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-300 transition-all duration-300">
+              <h3 className="relative z-10 text-xl md:text-2xl font-bold text-slate-800 mb-4 tracking-tight transition-all duration-300">
                 {feature.title}
               </h3>
-              <p className="relative z-10 text-slate-300 leading-relaxed text-base font-light">
+              <p className="relative z-10 text-slate-600 leading-relaxed text-base font-medium">
                 {feature.desc}
               </p>
             </div>
@@ -175,16 +175,16 @@ export default function Onboarding() {
 
       {/* Full Screen Modal Overlay */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8 animate-in fade-in duration-500 overflow-hidden">
-          <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-sm" onClick={() => setIsModalOpen(false)} />
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-8 animate-in fade-in duration-500 overflow-hidden">
+          <div className="absolute inset-0 bg-slate-900/20 backdrop-blur-md" onClick={() => setIsModalOpen(false)} />
           
-          <div className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-slate-900 border border-slate-700/50 rounded-[2.5rem] p-8 md:p-12 shadow-[0_0_80px_rgba(0,0,0,0.5)] animate-slide-up scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
-            {/* Modal Inner Glow */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-[80px] rounded-full pointer-events-none" />
+          <div className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-white border border-slate-200 rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.1)] animate-slide-up scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent">
+            {/* Modal Ambient Glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-teal-100/50 blur-[80px] rounded-full pointer-events-none" />
             
             <button 
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-6 right-6 p-2 rounded-full hover:bg-white/10 text-slate-400 hover:text-white transition-colors z-20"
+              className="absolute top-6 right-6 p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-700 transition-colors z-20"
             >
               <X size={24} />
             </button>
@@ -192,11 +192,11 @@ export default function Onboarding() {
             {/* STEP 1: Condition */}
             {step === 1 && (
             <div className="relative z-10 animate-in fade-in slide-in-from-left-4 duration-500">
-              <div className="mb-2 text-sm font-bold tracking-widest text-teal-400 uppercase">Step 1 of 2</div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 pr-8">
+              <div className="mb-2 text-sm font-bold tracking-widest text-teal-600 uppercase">Step 1 of 2</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3 pr-8">
                 How can we help?
               </h2>
-              <p className="text-slate-400 text-lg mb-8">
+              <p className="text-slate-500 text-lg mb-8 font-medium">
                 To personalize your learning games, please select the primary condition or focus area.
               </p>
 
@@ -205,21 +205,25 @@ export default function Onboarding() {
                   <button
                     key={cond.id}
                     onClick={() => setSelectedCondition(cond.id)}
-                    className={`relative flex items-center p-5 rounded-2xl border text-left transition-all duration-300 ${
+                    className={`relative flex items-center p-5 rounded-2xl border-2 text-left transition-all duration-300 ${
                       selectedCondition === cond.id
-                        ? "bg-teal-500/10 border-teal-500/50 shadow-[0_0_20px_rgba(20,184,166,0.15)]"
-                        : "bg-white/[0.02] border-white/5 hover:bg-white/[0.06] hover:border-white/20"
+                        ? "bg-teal-50 border-teal-500 shadow-[0_4px_16px_rgba(20,184,166,0.15)]"
+                        : "bg-white border-slate-100 hover:bg-slate-50 hover:border-slate-200"
                     }`}
                   >
                     <div className="flex-1">
-                      <div className="font-semibold text-lg text-white mb-1">{cond.label}</div>
-                      <div className="text-slate-400 text-sm font-light">{cond.desc}</div>
+                      <div className={`font-bold text-lg mb-1 ${selectedCondition === cond.id ? "text-teal-800" : "text-slate-700"}`}>
+                        {cond.label}
+                      </div>
+                      <div className={`text-sm font-medium ${selectedCondition === cond.id ? "text-teal-600/80" : "text-slate-500"}`}>
+                        {cond.desc}
+                      </div>
                     </div>
                     
-                    <div className={`w-6 h-6 rounded-full border flex items-center justify-center transition-colors ${
+                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
                       selectedCondition === cond.id 
                         ? "bg-teal-500 border-teal-500 text-white" 
-                        : "border-slate-600 border-dashed"
+                        : "border-slate-300 bg-white"
                     }`}>
                       {selectedCondition === cond.id && <Check size={14} strokeWidth={3} />}
                     </div>
@@ -227,18 +231,18 @@ export default function Onboarding() {
                 ))}
               </div>
 
-              <div className="flex justify-end sticky bottom-0 pt-4 bg-slate-900/90 backdrop-blur-xl border-t border-slate-700/50 -mx-4 px-4 sm:-mx-8 sm:px-8">
+              <div className="flex justify-end mt-4 pt-6 border-t border-slate-100">
                 <button
                   onClick={handleNextStep}
                   disabled={!selectedCondition}
                   className={`flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 ${
                     selectedCondition
-                      ? "bg-teal-500 text-white hover:bg-teal-400 hover:shadow-[0_0_30px_rgba(45,212,191,0.4)]"
-                      : "bg-slate-800 text-slate-500 cursor-not-allowed"
+                      ? "bg-teal-600 text-white hover:bg-teal-500 hover:shadow-[0_8px_24px_rgba(13,148,136,0.3)] shadow-md"
+                      : "bg-slate-100 text-slate-400 cursor-not-allowed"
                   }`}
                 >
                   Continue
-                  <ChevronRight size={20} />
+                  <ChevronRight size={20} strokeWidth={2.5} />
                 </button>
               </div>
             </div>
@@ -247,33 +251,37 @@ export default function Onboarding() {
             {/* STEP 2: Age & Language */}
             {step === 2 && (
             <div className="relative z-10 animate-in fade-in slide-in-from-right-4 duration-500">
-              <div className="mb-2 text-sm font-bold tracking-widest text-sky-400 uppercase">Step 2 of 2</div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 pr-8">
+              <div className="mb-2 text-sm font-bold tracking-widest text-sky-600 uppercase">Step 2 of 2</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3 pr-8">
                 About the Learner
               </h2>
-              <p className="text-slate-400 text-lg mb-8">
+              <p className="text-slate-500 text-lg mb-8 font-medium">
                 Help us tailor the experience by providing the age group and preferred language.
               </p>
 
               {/* Age Grid */}
               <div className="mb-8">
-                <div className="flex items-center gap-2 mb-4 text-slate-300">
-                  <Calendar size={20} className="text-sky-400" />
-                  <span className="font-semibold text-lg">Age Group</span>
+                <div className="flex items-center gap-2 mb-4 text-slate-700">
+                  <Calendar size={20} className="text-sky-500" strokeWidth={2.5} />
+                  <span className="font-bold text-lg">Age Group</span>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   {ages.map((a) => (
                     <button
                       key={a.id}
                       onClick={() => setSelectedAge(a.id)}
-                      className={`p-4 rounded-2xl border text-center transition-all duration-300 ${
+                      className={`p-4 rounded-2xl border-2 text-center transition-all duration-300 ${
                         selectedAge === a.id
-                          ? "bg-sky-500/10 border-sky-500/50 shadow-[0_0_20px_rgba(14,165,233,0.15)]"
-                          : "bg-white/[0.02] border-white/5 hover:bg-white/[0.06] hover:border-white/20"
+                          ? "bg-sky-50 border-sky-500 shadow-[0_4px_16px_rgba(14,165,233,0.15)]"
+                          : "bg-white border-slate-100 hover:bg-slate-50 hover:border-slate-200"
                       }`}
                     >
-                      <div className={`font-bold mb-1 ${selectedAge === a.id ? "text-sky-300" : "text-white"}`}>{a.label}</div>
-                      <div className="text-slate-400 text-xs">{a.desc}</div>
+                      <div className={`font-extrabold mb-1 text-lg ${selectedAge === a.id ? "text-sky-700" : "text-slate-700"}`}>
+                        {a.label}
+                      </div>
+                      <div className={`text-xs font-medium ${selectedAge === a.id ? "text-sky-600/80" : "text-slate-500"}`}>
+                        {a.desc}
+                      </div>
                     </button>
                   ))}
                 </div>
@@ -281,19 +289,19 @@ export default function Onboarding() {
 
               {/* Language Grid */}
               <div className="mb-10">
-                <div className="flex items-center gap-2 mb-4 text-slate-300">
-                  <Globe size={20} className="text-emerald-400" />
-                  <span className="font-semibold text-lg">Primary Language</span>
+                <div className="flex items-center gap-2 mb-4 text-slate-700">
+                  <Globe size={20} className="text-emerald-500" strokeWidth={2.5} />
+                  <span className="font-bold text-lg">Primary Language</span>
                 </div>
                 <div className="flex flex-wrap gap-3">
                   {languages.map((l) => (
                     <button
                       key={l.id}
                       onClick={() => setSelectedLang(l.id)}
-                      className={`flex-1 min-w-[120px] p-3 rounded-2xl border text-center transition-all duration-300 font-semibold ${
+                      className={`flex-1 min-w-[110px] p-3 rounded-2xl border-2 text-center transition-all duration-300 font-bold ${
                         selectedLang === l.id
-                          ? "bg-emerald-500/10 border-emerald-500/50 text-emerald-300 shadow-[0_0_20px_rgba(16,185,129,0.15)]"
-                          : "bg-white/[0.02] border-white/5 text-slate-300 hover:bg-white/[0.06] hover:border-white/20 hover:text-white"
+                          ? "bg-emerald-50 border-emerald-500 text-emerald-700 shadow-[0_4px_16px_rgba(16,185,129,0.15)]"
+                          : "bg-white border-slate-100 text-slate-600 hover:bg-slate-50 hover:border-slate-200 hover:text-slate-800"
                       }`}
                     >
                       {l.label}
@@ -302,12 +310,12 @@ export default function Onboarding() {
                 </div>
               </div>
 
-              <div className="flex justify-between items-center sticky bottom-0 pt-4 bg-slate-900/90 backdrop-blur-xl border-t border-slate-700/50 -mx-4 px-4 sm:-mx-8 sm:px-8">
+              <div className="flex justify-between items-center mt-4 pt-6 border-t border-slate-100">
                 <button
                   onClick={() => setStep(1)}
-                  className="flex items-center gap-2 px-6 py-4 rounded-full font-bold text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300"
+                  className="flex items-center gap-2 px-6 py-4 rounded-full font-bold text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-all duration-300"
                 >
-                  <ChevronLeft size={20} />
+                  <ChevronLeft size={20} strokeWidth={2.5} />
                   Back
                 </button>
                 
@@ -316,12 +324,12 @@ export default function Onboarding() {
                   disabled={!selectedAge || !selectedLang}
                   className={`flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 ${
                     selectedAge && selectedLang
-                      ? "bg-sky-500 text-white hover:bg-sky-400 hover:shadow-[0_0_30px_rgba(14,165,233,0.4)]"
-                      : "bg-slate-800 text-slate-500 cursor-not-allowed"
+                      ? "bg-sky-600 text-white hover:bg-sky-500 hover:shadow-[0_8px_24px_rgba(14,165,233,0.3)] shadow-md"
+                      : "bg-slate-100 text-slate-400 cursor-not-allowed"
                   }`}
                 >
                   Finish
-                  <Check size={20} className={selectedAge && selectedLang ? "opacity-100" : "opacity-0"} />
+                  <Check size={20} strokeWidth={3} className={selectedAge && selectedLang ? "opacity-100 w-5" : "opacity-0 w-0"} />
                 </button>
               </div>
             </div>

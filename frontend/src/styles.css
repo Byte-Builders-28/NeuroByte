@@ -7,8 +7,8 @@
 body {
   margin: 0;
   font-family: var(--font-outfit);
-  background: #0f172a; /* Calming deep slate-blue */
-  color: white;
+  background: #F0F8FF; /* Soothing AliceBlue for stress-free viewing */
+  color: #0f172a; /* Deep slate for high legibility without harsh black */
   -webkit-font-smoothing: antialiased;
 }
 
