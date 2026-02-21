@@ -185,27 +185,30 @@ export default function Onboarding() {
         <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-8 animate-in fade-in duration-500 overflow-hidden">
           <div className="absolute inset-0 bg-slate-900/20 backdrop-blur-md" onClick={() => setIsModalOpen(false)} />
           
-          <div className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-white border border-slate-200 rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.1)] animate-slide-up scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent">
+          <div className="relative w-full max-w-2xl max-h-[85vh] flex flex-col bg-white border border-slate-200 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.1)] animate-slide-up overflow-hidden">
             {/* Modal Ambient Glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-teal-100/50 blur-[80px] rounded-full pointer-events-none" />
             
-            <button 
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-6 right-6 p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-700 transition-colors z-20"
-            >
-              <X size={24} />
-            </button>
+            <div className="relative z-20 flex justify-end px-8 pt-8 md:px-12 md:pt-12 pb-2">
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-700 transition-colors backdrop-blur-sm bg-white/50"
+              >
+                <X size={24} />
+              </button>
+            </div>
 
-            {/* STEP 1: Condition */}
-            {step === 1 && (
-            <div className="relative z-10 animate-in fade-in slide-in-from-left-4 duration-500">
-              <div className="mb-2 text-sm font-bold tracking-widest text-teal-600 uppercase">Step 1 of 2</div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3 pr-8">
-                How can we help?
-              </h2>
-              <p className="text-slate-500 text-lg mb-8 font-medium">
-                To personalize your learning games, please select the primary condition or focus area.
-              </p>
+            <div className="flex-1 overflow-y-auto px-8 pb-8 md:px-12 md:pb-12 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent relative z-10">
+              {/* STEP 1: Condition */}
+              {step === 1 && (
+              <div className="animate-in fade-in slide-in-from-left-4 duration-500">
+                <div className="mb-2 text-sm font-bold tracking-widest text-teal-600 uppercase">Step 1 of 2</div>
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3 pr-8">
+                  How can we help?
+                </h2>
+                <p className="text-slate-500 text-lg mb-8 font-medium">
+                  To personalize your learning games, please select the primary condition or focus area.
+                </p>
 
               <div className="grid gap-3 mb-10">
                 {conditions.map((cond) => (
@@ -252,19 +255,19 @@ export default function Onboarding() {
                   <ChevronRight size={20} strokeWidth={2.5} />
                 </button>
               </div>
-            </div>
-            )}
+              </div>
+              )}
 
-            {/* STEP 2: Age & Language */}
-            {step === 2 && (
-            <div className="relative z-10 animate-in fade-in slide-in-from-right-4 duration-500">
-              <div className="mb-2 text-sm font-bold tracking-widest text-sky-600 uppercase">Step 2 of 2</div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3 pr-8">
-                About the Learner
-              </h2>
-              <p className="text-slate-500 text-lg mb-8 font-medium">
-                Help us tailor the experience by providing the age group and preferred language.
-              </p>
+              {/* STEP 2: Age & Language */}
+              {step === 2 && (
+              <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+                <div className="mb-2 text-sm font-bold tracking-widest text-sky-600 uppercase">Step 2 of 2</div>
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3 pr-8">
+                  About the Learner
+                </h2>
+                <p className="text-slate-500 text-lg mb-8 font-medium">
+                  Help us tailor the experience by providing the age group and preferred language.
+                </p>
 
               {/* Age Grid */}
               <div className="mb-8">
@@ -342,6 +345,7 @@ export default function Onboarding() {
             </div>
             )}
 
+            </div>
           </div>
         </div>
       )}

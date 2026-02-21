@@ -73,13 +73,14 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-/* Hide scrollbar utility */
+/* Hide scrollbar utility for global page elements only */
 .hide-scrollbar {
   -ms-overflow-style: none !important; /* IE and Edge */
   scrollbar-width: none !important; /* Firefox */
 }
 
-.hide-scrollbar::-webkit-scrollbar,
-.hide-scrollbar *::-webkit-scrollbar {
+/* Specifically target body/html to avoid hiding all internal scrollbars */
+html.hide-scrollbar::-webkit-scrollbar,
+body.hide-scrollbar::-webkit-scrollbar {
   display: none !important; /* Safari and Chrome */
 }
